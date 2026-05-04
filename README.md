@@ -1,192 +1,105 @@
+# 🚀 Zync – Real-Time Communication Platform
 
-# Zync – Real Time Chat and Modern Video Conferencing Web App
+**Zync** is a modern real-time communication platform that enables users to connect through video conferencing and live interaction.
 
-zync is a modern and user-friendly **video conferencing platform** similar to Google Meet or Zoom.  
-It allows users to start or join meetings, share screens, manage participants, and access meeting history — all powered by **Stream Video SDK** and **Clerk Authentication**.
-
-This project is built using the **Next.js App Router**, **TailwindCSS**, **ShadCN UI**, and **Stream Video React SDK**.
+Inspired by platforms like Google Meet and Zoom, Zync allows users to create or join meetings, collaborate in real-time, and manage sessions seamlessly.
 
 ---
 
-## ⭐ Features
+## 🌟 Features
 
-| Feature | Description |
-|--------|-------------|
-| 🔐 Authentication | Secure login/signup using **Clerk** |
-| 🎥 Real-time Video Calls | Powered by **Stream Video SDK** |
-| 🧑‍🤝‍🧑 Create & Join Meetings | Users can host or join via unique meeting ID |
-| 🎙️ Toggle Mic, Camera & Screen Share | Full modern meeting controls |
-| 🧭 Dashboard | See **Upcoming**, **Previous**, and **Personal Room** |
-| 🔁 Recording Support | Access & view past sessions |
-| 🌗 Modern UI | Beautiful UI with Tailwind + ShadCN |
-| ☁️ Deployed Easily | Optimized for **Vercel** |
+* 🔐 Secure Authentication (Clerk)
+* 🎥 Real-time Video Calls (Stream Video SDK)
+* 🧑‍🤝‍🧑 Create & Join Meetings
+* 🎙️ Mic, Camera & Screen Share Controls
+* 🧭 Dashboard (Upcoming, Previous, Recordings)
+* 🌗 Modern UI (TailwindCSS + ShadCN)
+* ☁️ Easy Deployment on Vercel
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Category | Technology Used |
-|---------|-----------------|
-| Frontend Framework | **Next.js (App Router)** |
-| Video Calls | **Stream Video SDK** |
-| Authentication | **Clerk** |
-| UI Framework | **TailwindCSS + ShadCN** |
-| Animation & Interactions | **React Hooks + ShadCN Components** |
-| Deployment | **Vercel** |
-
----
-
-## 📂 Folder Structure
-
-```
-
-src/
-├─ app/                     # App Router pages
-│   ├─ (auth)/              # Sign-in / Sign-up pages (Clerk)
-│   ├─ (root)/              # Authenticated dashboard routes
-│   │   ├─ (home)/          # Home + Upcoming + Previous + Recordings
-│   │   └─ meeting/[id]     # Actual meeting UI
-│   └─ layout.tsx           # Root layout wrapper
-│
-├─ components/              # Shared UI components
-├─ providers/
-│   └─ StreamClientProvider.tsx  # Stream client wrapper
-│
-├─ actions/
-│   └─ stream.actions.ts    # Secure token provider for Stream calls
-│
-├─ lib/                     # Config & helpers
-└─ middleware.ts            # Auth protection across routes
-
-````
+* **Frontend:** Next.js (App Router)
+* **Real-time Engine:** Stream Video SDK
+* **Authentication:** Clerk
+* **UI:** TailwindCSS + ShadCN
+* **Deployment:** Vercel
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/your-username/connecto.git
-cd connecto
-````
-
-### 2️⃣ Install Dependencies
+### 1. Clone Repository
 
 ```bash
-npm install
-# or
-yarn install
+git clone https://github.com/tanayybbansal/zync.git
+cd zync
 ```
 
 ---
 
-## 🔑 Environment Variables Setup
+### 2. Install Dependencies
+
+```bash
+npm install --legacy-peer-deps
+```
+
+---
+
+### 3. Setup Environment Variables
 
 Create a `.env.local` file in the root:
 
 ```env
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_key
+CLERK_SECRET_KEY=your_secret
 
-NEXT_PUBLIC_STREAM_API_KEY=your_stream_api_key
-STREAM_SECRET_KEY=your_stream_secret_key
+NEXT_PUBLIC_STREAM_API_KEY=your_stream_key
+STREAM_SECRET_KEY=your_stream_secret
 
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
-### Where to get keys:
-
-| Service      | Get Keys From              | Link                                                       |
-| ------------ | -------------------------- | ---------------------------------------------------------- |
-| Clerk        | Dashboard → API Keys       | [https://dashboard.clerk.com](https://dashboard.clerk.com) |
-| Stream Video | Dashboard → Video API Keys | [https://getstream.io/video](https://getstream.io/video)   |
-
 ---
 
-## ▶️ Run the Development Server
+### 4. Run the App
 
 ```bash
 npm run dev
 ```
 
-App will be available at:
-
-```
-http://localhost:3000
-```
+Open:
+👉 http://localhost:3000
 
 ---
 
-## 🧪 Core Video Logic (How Meetings Work)
+## 🚀 Deployment
 
-1. User logs in using Clerk
-2. `StreamClientProvider` initializes a video client with their identity
-3. On starting/joining a meeting, a **room** is created with:
-
-   ```ts
-   const call = client.call("default", roomId);
-   await call.join();
-   ```
-4. UI components like:
-
-   ```tsx
-   <Call>
-     <SpeakerLayout />
-     <CallControls />
-   </Call>
-   ```
-
-   handle camera, mic, screen share, etc.
-
-**No WebRTC setup required** — Stream handles it internally.
+1. Push code to GitHub
+2. Import project in Vercel
+3. Add environment variables
+4. Deploy 🎉
 
 ---
 
-## 🌍 Deploying on Vercel
+## 🎓 Project Overview
 
-```bash
-npm run build
-```
-
-Then deploy:
-
-* Push code to GitHub
-* Go to [https://vercel.com](https://vercel.com) → New Project → Import repo
-* Add environment variables under **Project → Settings → Environment Variables**
-
-Click **Deploy** 🎉
+Zync is built as a **real-time communication system** demonstrating authentication, live video interaction, and scalable cloud integration.
 
 ---
 
-## 🧱 Future Improvements (Optional)
+## 🔮 Future Improvements
 
-* ✅ Chat inside meeting
-* ✅ Waiting room / Lobby
-* ✅ More meeting layouts
-* ✅ Participants list management
-* ✅ Send Meeting Invites via Email
-
----
-
-## 📝 License
-
-This project is **Open Source** and free to use.
+* 💬 Real-time chat feature
+* 📩 Meeting invitations
+* 🧑‍🤝‍🧑 Participant management
+* 🕒 Waiting room system
 
 ---
 
-## ❤️ Contributing
+## 👨‍💻 Author
 
-Pull Requests are welcome!
-Feel free to improve UI, add features, or optimize logic.
+Tanay Bansal
 
 ---
-
-## ⭐ Show Support
-
-If you like this project:
-
-```
-⭐ Star the repo
-```
-
-It motivates further development 😊
