@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/src/components/ui/toaster";
@@ -10,17 +10,7 @@ const pk =
   process.env.CLERK_PUBLISHABLE_KEY ||
   process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "zync",
@@ -61,7 +51,7 @@ export default function RootLayout({
         }}
       >
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-neutral-50 text-neutral-900 selection:bg-blue-100 selection:text-blue-800`}
+          className={`${inter.className} antialiased min-h-screen bg-neutral-50 text-neutral-900 selection:bg-blue-100 selection:text-blue-800`}
         >
           {children}
           <Toaster />

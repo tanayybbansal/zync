@@ -137,7 +137,7 @@ const MeetingTypeList = () => {
             </label>
             <ReactDatePicker
               selected={values.dateTime}
-              onChange={(date) => setValues((v) => ({ ...v, dateTime: date! }))}
+              onChange={(date: Date | null) => setValues((v) => ({ ...v, dateTime: date! }))}
               showTimeSelect
               timeFormat="HH:mm"
               timeIntervals={15}
